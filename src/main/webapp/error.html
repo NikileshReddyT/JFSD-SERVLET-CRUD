@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="error.css">
+    <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #ff6f61, #de4a4a);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-container {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #de4a4a;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 500px;
+}
+
+.error-container h1 {
+  color: #de4a4a;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.error-container p {
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 30px;
+}
+
+.error-container .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #de4a4a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+} 
+
+.error-container .btn:hover {
+  background-color: #c13c3c;
+  transform: scale(1.05);
+}
+
+.error-container .btn:active {
+  transform: scale(0.95);
+}
+    
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Something Went Wrong!</h1>
+        <p id="error-message"></p>
+        <a href="index.html" class="btn">Go Back</a>
+    </div>
+    <script>
+        // Display the error message passed in the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('message');
+        if (errorMessage) {
+            document.getElementById('error-message').textContent = errorMessage;
+        }
+    </script>
+</body>
+</html>
